@@ -8,11 +8,8 @@
     <meta name="author" content="Tu Nombre o el de la Empresa">
     <title>@yield('title', 'Título Predeterminado')</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/estilos/home.css') }}">
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/apps.css') }}">
-    <link rel="shortcut icon" href="{{ asset('imagenes/logo-icon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/logo-icon.png') }}" type="image/x-icon">
 
 </head>
 
@@ -36,10 +33,6 @@
     <!-- Pie de página -->
     @include('footer.footer')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/main.js') }}"></script>
-
-        
 </body>
 
 </html>

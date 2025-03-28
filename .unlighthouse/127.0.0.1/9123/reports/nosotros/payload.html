@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripción breve de lo que trata tu sitio web, mejora SEO y UX.">
+    <meta name="author" content="Tu Nombre o el de la Empresa">
+    <title>Nosotros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/logo-icon.png" type="image/x-icon">
+
+</head>
+
+<body class="m-0 p-0 flex flex-col min-h-screen bg-gray-100">
+    <!-- Encabezado -->
+    <header class="w-full m-0 p-0">
+        <header x-data="{ open: false }" class="bg-white border-b-2 border-gray-200 fixed top-0 w-full z-10">
+    <div class="container mx-auto px-4 py-5 flex justify-between items-center">
+        <!-- Logo y texto más centrados dentro del contenedor COLOAR EN CASO SEA NECESAROI
+        flex-shrink-0  -->
+        <div class="flex justify-start md:justify-center flex-grow items-center">
+            <a href="http://127.0.0.1:8000" class="flex items-center">
+                <img src="http://127.0.0.1:8000/logo/LOGO LAREDO.png" alt="Logo del Hospital Distrital LAREDO" class="h-12 md:h-16">
+                <div class="hidden md:flex flex-col ml-3">
+                    <h1 class="text-lg md:text-xl font-semibold text-gray-800">Hospital Distrital LAREDO</h1>
+                    <p class="text-xs text-gray-600">Cuidando tu salud</p>
+                </div>
+            </a>
+        </div>
+        <!-- Navegación -->
+        <nav class="flex-grow flex justify-center items-center space-x-10">
+
+            <ul class="nav-links hidden md:flex flex-col md:flex-row md:items-center md:ml-auto mx-auto">
+
+                <a href="http://127.0.0.1:8000"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Inicio
+                    <span
+                        class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/nosotros"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-800 font-semibold">
+                    Nosotros
+                    <span
+                        class="block h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+
+                <a href="http://127.0.0.1:8000/especialidades1"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Especialidades
+                    <span
+                        class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/noticias"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Noticias
+                    <span
+                        class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/contactanos"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Contacto
+                    <span
+                        class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <div class="bg-gray-400 w-px h-8 self-center mx-3"></div>
+
+                <div class="flex space-x-1">
+                    <a href="http://127.0.0.1:8000/cita/login"
+                        class="px-2 py-2 rounded-full text-white bg-gray-800 transition-colors duration-300">Iniciar
+                        sesión</a>
+                    <a href="http://127.0.0.1:8000/registro"
+                        class="px-2 py-2 rounded-full text-white bg-red-500 transition-colors duration-300">Crear
+                        cuenta</a>
+                </div>
+
+            </ul>
+
+        </nav>
+
+        <div class="md:hidden flex items-center">
+            <button @click="open = !open"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800 transition">
+                <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-80 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-0 scale-100"
+        x-transition:leave-end="opacity-0 scale-95" class="md:hidden ">
+
+        <div class="px-5 py-4 shadow-xl rounded-lg transform transition-all duration-300 scale-100 opacity-100">
+
+            <a href="http://127.0.0.1:8000"
+            class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+                text-gray-700 hover:text-gray-900">
+
+                <span class="mr-3"><i class="fas fa-home text-gray-800"></i></span>
+
+                Inicio
+                <span class="hidden absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/nosotros" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+                text-gray-800 font-semibold">
+                <span class="mr-3"><i class="fas fa-users  text-gray-800"></i></span>
+
+                Nosotros
+                <span
+                    class="block h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000/especialidades1"
+                class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-briefcase-medical text-gray-800"></i></span>
+                Especialidades
+                <span
+                    class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/noticias"
+                class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-newspaper text-gray-800"></i></span>
+                Noticias
+                <span
+                    class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/contactanos" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "
+                text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-envelope text-gray-800"></i></span>
+                Contacto
+                <span
+                    class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <br>
+            <div class="flex justify-center gap-4 my-2">
+                <a href="http://127.0.0.1:8000/cita/login"
+                    class="px-3 py-2 rounded-full text-white bg-gray-800 transition-colors duration-300">
+                    Iniciar sesión
+                </a>
+                <a href="http://127.0.0.1:8000/registro"
+                    class="px-3 py-2 rounded-full text-white bg-red-500 transition-colors duration-300">
+                    Crear cuenta
+                </a>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+        </div>
+
+    </div>
+</header>
+
+
+
+<style>
+    .bg-custom-color {
+        background-color: rgb(3, 194, 194);
+    }
+</style>
+
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x" defer></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </header>
+
+    <!-- Carrusel con un margen superior dinámico basado en la altura del encabezado -->
+
+    <div class="mt-24 lg:mt-32 xl:mt-0">
+            </div>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-4 flex-grow xl:mt-40">
+        
+
+    <div class="container mx-auto px-4 py-6">
+
+        <div class="max-w-7xl mx-auto">
+            <!-- Flex container for all content -->
+            <div class="flex flex-wrap justify-center items-center">
+                <!-- Image Section (Red) -->
+                <div class="w-full md:w-1/2 px-4 mb-6 md:mb-0">
+                    <img src="http://127.0.0.1:8000/img/nosotros3.jpeg" alt="Our Team" class="w-full h-auto shadow-lg rounded-lg">
+                </div>
+
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="space-y-4">
+                        <div class="bg-gray-200 text-gray-800 rounded-lg shadow-lg p-6">
+                            <h2 class="text-2xl font-bold mb-3">Quiénes Somos</h2>
+                            <p class="text-lg leading-relaxed">
+                                Somos un equipo comprometido con la excelencia en el cuidado de la salud, dedicados a ofrecer servicios médicos de primera calidad. Nuestra prioridad es garantizar el bienestar y la satisfacción de nuestros pacientes a través de un trato humano y profesional.
+                            </p>
+                        </div>
+
+                        <!-- Mission and Vision (Green) -->
+                        <div class="bg-gray-700 text-white rounded-lg shadow-lg p-6">
+                            <h2 class="text-xl font-bold text-white"><i class="fas fa-bullseye mr-2"></i>Misión</h2>
+                            <p>Brindamos atención médica de excelencia, con profesionales especializados y respeto al paciente.</p>
+                        </div>
+                        <div class="bg-gray-700 text-white rounded-lg shadow-lg p-6">
+                            <h2 class="text-xl font-bold text-white"><i class="fas fa-eye mr-2"></i>Visión</h2>
+                            <p>Ser la red nacional de salud con pacientes encantados.</p>
+                        </div>
+                    </div>
+
+                    <!-- Numerical Info (Blue) -->
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Achievement 1 -->
+                        <div class="bg-custom-color text-black rounded-lg shadow-lg p-6">
+                            <h2 class="text-lg font-bold text-black"><i class="fas fa-trophy mr-2"></i> Pacientes Atendidos</h2>
+                            <p>Más de 100,000 pacientes atendidos en el último año.</p>
+                        </div>
+
+                        <!-- Achievement 2 -->
+                        <div class="bg-custom-color text-black rounded-lg shadow-lg p-6">
+                            <h2 class="text-lg font-bold text-black"><i class="fas fa-medal mr-2"></i> Calidad de Servicio</h2>
+                            <p>95% de satisfacción en encuestas de servicio al cliente.</p>
+                        </div>
+
+                        <!-- Achievement 3 -->
+                        <div class="bg-custom-color text-black rounded-lg shadow-lg p-6">
+                            <h2 class="text-lg font-bold text-black"><i class="fas fa-award mr-2"></i> Innovación en Salud</h2>
+                            <p>Líderes en implementación de tecnología médica avanzada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="py-8" style="background-color: rgb(0, 56, 102);">
+    <div class="container mx-auto text-white">
+        <div class="container mx-auto text-white text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                <div class="md:mt-0 md:text-left"> <!-- Cambiado a md:text-left -->
+                    <h4 class="font-semibold mb-2">Redes Sociales</h4>
+<ul class="flex flex-wrap gap-2 md:gap-4"> <!-- Quité la clase justify-start -->
+    <li><a href="#"><i class="fab fa-facebook text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin text-white"></i></a></li>
+</ul>
+</div>
+<div class="text-left md:text-right"> 
+<div class="mt-4 md:mt-0"> 
+    <p class="text-sm">© 2024 Hospital Distrital Laredo · Todos los derechos reservados</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+
+</html>

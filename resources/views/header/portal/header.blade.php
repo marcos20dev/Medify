@@ -4,7 +4,7 @@
         flex-shrink-0  -->
         <div class="flex justify-start md:justify-center flex-grow items-center">
             <a href="{{ route('home') }}" class="flex items-center">
-                <img src="{{ asset('logo/logo.png') }}" alt="Logo del Hospital Distrital LAREDO" class="h-12 md:h-16">
+                <img src="{{ asset('logo/LOGO LAREDO.png') }}" alt="Logo del Hospital Distrital LAREDO" class="h-12 md:h-16">
                 <div class="hidden md:flex flex-col ml-3">
                     <h1 class="text-lg md:text-xl font-semibold text-gray-800">Hospital Distrital LAREDO</h1>
                     <p class="text-xs text-gray-600">Cuidando tu salud</p>

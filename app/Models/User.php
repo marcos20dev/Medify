@@ -1,45 +1,63 @@
 <?php
-
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function provincia()
+    {
+        return $this->belongsTo(Provincia::class, 'Provincia', 'idProv');
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(Regione::class, 'Region', 'idReg');
+    }
+
+    public function distrito()
+    {
+        return $this->belongsTo(Distrito::class, 'Distrito', 'idDist');
+    }
+
+
+    // Otros atributos, métodos y configuraciones del modelo
+
     protected $fillable = [
-        'name',
-        'email',
+        'TipoDoc',
+        'Numdoc',
+        'Nombre',
+        'ApePaterno',
+        'ApeMaterno',
+        'Telefono',
+        'Fechanac',
+        'Genero',
+        'Region',
+        'Provincia',
+        'Distrito',
+        'Direccion',
+        'Gmail',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    public function getAuthIdentifierName()
+    {
+        return 'Numdoc';  // Especifica que 'Numdoc' se usa como identificador de autenticación
+    }
+
 }
+

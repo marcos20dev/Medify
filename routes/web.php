@@ -34,6 +34,7 @@ Route::post('/registro', [RegistroController::class, 'guardar'])->name('registro
 Route::post('/api/consulta-dni', [ApiController::class, 'consultaDNI'])->name('api.consulta.dni');
 Route::post('/verificar', [LoginController::class, 'verificacion'])->name('verificar');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 //-----------------------------------------------------------------------------------------------------------
 
 
@@ -43,6 +44,8 @@ Route::post('/reservar', [CitasController::class, 'store'])->name('cita.store');
 Route::get('/mis-citas', [CitasController::class, 'obtenerCitasUsuario'])->middleware('auth')->name('citas.usuario');
 
 Route::post('/cancelar-cita', [CitasController::class, 'cancelarCita'])->name('cancelar.cita');
+
+Route::get('/citas/estado/{id}', [CitasController::class, 'verificarEstado'])->name('cita.estado');
 
 
 

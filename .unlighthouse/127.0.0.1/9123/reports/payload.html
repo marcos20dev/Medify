@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripción breve de lo que trata tu sitio web, mejora SEO y UX.">
+    <meta name="author" content="Tu Nombre o el de la Empresa">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/logo-icon.png" type="image/x-icon">
+
+</head>
+
+<body class="m-0 p-0 flex flex-col min-h-screen bg-gray-100">
+    <!-- Encabezado -->
+    <header class="w-full m-0 p-0">
+        <header x-data="{ open: false }" class="bg-white border-b-2 border-gray-200 fixed top-0 w-full z-10">
+    <div class="container mx-auto px-4 py-5 flex justify-between items-center">
+        <!-- Logo y texto más centrados dentro del contenedor COLOAR EN CASO SEA NECESAROI
+        flex-shrink-0  -->
+        <div class="flex justify-start md:justify-center flex-grow items-center">
+            <a href="http://127.0.0.1:8000" class="flex items-center">
+                <img src="http://127.0.0.1:8000/logo/LOGO LAREDO.png" alt="Logo del Hospital Distrital LAREDO" class="h-12 md:h-16">
+                <div class="hidden md:flex flex-col ml-3">
+                    <h1 class="text-lg md:text-xl font-semibold text-gray-800">Hospital Distrital LAREDO</h1>
+                    <p class="text-xs text-gray-600">Cuidando tu salud</p>
+                </div>
+            </a>
+        </div>
+        <!-- Navegación -->
+        <nav class="flex-grow flex justify-center items-center space-x-10">
+
+            <ul class="nav-links hidden md:flex flex-col md:flex-row md:items-center md:ml-auto mx-auto">
+
+                <a href="http://127.0.0.1:8000"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-800 font-semibold">
+                    Inicio
+                    <span
+                        class="block h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/nosotros"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Nosotros
+                    <span
+                        class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+
+                <a href="http://127.0.0.1:8000/especialidades1"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Especialidades
+                    <span
+                        class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/noticias"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Noticias
+                    <span
+                        class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/contactanos"
+                    class="relative px-4 py-2 rounded-lg transition-transform duration-300 transform hover:scale-110 text-gray-700 hover:text-gray-900">
+                    Contacto
+                    <span
+                        class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+                </a>
+
+                <div class="bg-gray-400 w-px h-8 self-center mx-3"></div>
+
+                <div class="flex space-x-1">
+                    <a href="http://127.0.0.1:8000/cita/login"
+                        class="px-2 py-2 rounded-full text-white bg-gray-800 transition-colors duration-300">Iniciar
+                        sesión</a>
+                    <a href="http://127.0.0.1:8000/registro"
+                        class="px-2 py-2 rounded-full text-white bg-red-500 transition-colors duration-300">Crear
+                        cuenta</a>
+                </div>
+
+            </ul>
+
+        </nav>
+
+        <div class="md:hidden flex items-center">
+            <button @click="open = !open"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800 transition">
+                <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-80 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-0 scale-100"
+        x-transition:leave-end="opacity-0 scale-95" class="md:hidden ">
+
+        <div class="px-5 py-4 shadow-xl rounded-lg transform transition-all duration-300 scale-100 opacity-100">
+
+            <a href="http://127.0.0.1:8000"
+            class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+                text-gray-800 font-semibold">
+
+                <span class="mr-3"><i class="fas fa-home text-gray-800"></i></span>
+
+                Inicio
+                <span class="block absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/nosotros" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+                text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-users  text-gray-800"></i></span>
+
+                Nosotros
+                <span
+                    class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000/especialidades1"
+                class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-briefcase-medical text-gray-800"></i></span>
+                Especialidades
+                <span
+                    class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/noticias"
+                class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-newspaper text-gray-800"></i></span>
+                Noticias
+                <span
+                    class="hidden h-1  bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <a href="http://127.0.0.1:8000/contactanos" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium "
+                text-gray-700 hover:text-gray-900">
+                <span class="mr-3"><i class="fas fa-envelope text-gray-800"></i></span>
+                Contacto
+                <span
+                    class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+            <br>
+            <div class="flex justify-center gap-4 my-2">
+                <a href="http://127.0.0.1:8000/cita/login"
+                    class="px-3 py-2 rounded-full text-white bg-gray-800 transition-colors duration-300">
+                    Iniciar sesión
+                </a>
+                <a href="http://127.0.0.1:8000/registro"
+                    class="px-3 py-2 rounded-full text-white bg-red-500 transition-colors duration-300">
+                    Crear cuenta
+                </a>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+        </div>
+
+    </div>
+</header>
+
+
+
+<style>
+    .bg-custom-color {
+        background-color: rgb(3, 194, 194);
+    }
+</style>
+
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x" defer></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </header>
+
+    <!-- Carrusel con un margen superior dinámico basado en la altura del encabezado -->
+
+    <div class="mt-24 lg:mt-32 xl:mt-0">
+            <div
+        class="relative bg-cover bg-center bg-no-repeat py-12 h-screen"style="background-image: url('http://127.0.0.1:8000/img/home_fondo.jpg');">
+
+        <div class="relative pt-52 max-w-6xl mx-auto text-gray-800 px-4">
+
+            <div>
+                <div class="flex items-center space-x-4">
+                    <span class="w-14 border-b border-gray-800 inline-flex"></span>
+                    <p class="uppercase tracking-widest font-semibold">Gestión de Citas Médicas </p>
+                </div>
+                <div class="mt-3">
+                    <p class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                        Programa tu cita médica
+                        <span class="text-blue-600" style="color: rgb(1, 170, 170);">fácil y rápidamente.</span>
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <p class="max-w-xl text-lg ">
+                        Accede a nuestro sistema moderno y seguro para agendar tus citas médicas
+                        con los mejores especialistas. Todo desde la comodidad de tu hogar o en movimiento.
+                    </p>
+                </div>
+
+                <div class="flex mt-14 space-x-10">
+                    <!-- Botón 'Agenda ahora' con icono de calendario -->
+                    <a href="http://127.0.0.1:8000/menu"
+                        class="text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out flex items-center justify-center"
+                        style="background-color: rgb(1, 170, 170);"
+                        onmouseover="this.style.backgroundColor='rgb(1, 150, 150)';"
+                        onmouseout="this.style.backgroundColor='rgb(1, 170, 170)';">
+                        <i class="fas fa-calendar-alt mr-2"></i> <!-- Icono de calendario -->
+                        Agenda ahora
+                        <i class="fas fa-arrow-right ml-2"></i> <!-- Icono de flecha a la derecha -->
+                    </a>
+
+                    <!-- Botón 'Ver especialidades' con icono de listado -->
+                    <a href="http://127.0.0.1:8000/especialidades1"
+                        class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out flex items-center justify-center">
+                        <i class="fas fa-list-ul mr-2"></i> <!-- Icono de listado -->
+                        Ver especialidades
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <img src="http://127.0.0.1:8000/img/banner.png" alt="Screenshots del Software"
+            class="absolute bottom-0 left-0 w-full h-auto">
+
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <div class="text-center my-12">
+        <h2 class="text-2xl font-bold mb-6">Cómo agendar una cita:</h2>
+        <div class="flex flex-wrap justify-center gap-10 px-20">
+            <div class="p-6 w-72 text-center">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-user-plus" style="color: rgb(1, 170, 170); font-size: 5rem;"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Regístrate o ingresa</h3>
+                <p>Inicia sesión en nuestra plataforma o regístrate para comenzar.</p>
+                <a href="http://127.0.0.1:8000/cita/login" style="color: rgb(1, 170, 170);" class="hover:text-[rgb(1,150,150)] mt-4">Ir →</a>
+            </div>
+            <div class="p-6 w-72 text-center">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-calendar-check" style="color: rgb(1, 170, 170); font-size: 5rem;"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Elige tu especialista</h3>
+                <p>Selecciona al mejor especialista según tus necesidades de salud.</p>
+                <a href="http://127.0.0.1:8000/menu" style="color: rgb(1, 170, 170);" class="hover:text-[rgb(1,150,150)] mt-4">Ir →</a>
+            </div>
+            <div class="p-6 w-72 text-center">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-clock" style="color: rgb(1, 170, 170); font-size: 5rem;"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Escoge un horario</h3>
+                <p>Consulta la disponibilidad de horarios y selecciona el que mejor se ajuste a ti.</p>
+                <a href="http://127.0.0.1:8000/menu" style="color: rgb(1, 170, 170);" class="hover:text-[rgb(1,150,150)] mt-4">Ir →</a>
+            </div>
+            <div class="p-6 w-72 text-center">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-notes-medical" style="color: rgb(1, 170, 170); font-size: 5rem;"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Confirma tu cita</h3>
+                <p>Confirma los detalles de tu cita y prepárate para recibir la mejor atención médica.</p>
+                <a href="http://127.0.0.1:8000/menu" style="color: rgb(1, 170, 170);" class="hover:text-[rgb(1,150,150)] mt-4">Ir
+                    →</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Preguntas frecuentes sobre citas médicas -->
+
+    <!-- Preguntas frecuentes sobre gestión de citas médicas -->
+    <section class="max-w-5xl mx-auto py-16 text-slate-500 px-4" id="preguntas">
+        <div class="flex flex-col items-center">
+            <h1 class="text-4xl font-bold text-center">Preguntas frecuentes</h1>
+            <p class="text-center mt-8 max-w-2xl">
+                Verifica si tu inquietud se encuentra dentro de los siguientes
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <ul class="space-y-6">
+                <li class="bg-gray-200 shadow-lg rounded-lg p-5 md:p-10">
+                    <details class="border-l-4 border-red-500 pl-4">
+                        <summary class="font-semibold text-lg cursor-pointer">
+                            ¿Cómo puedo agendar una cita?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Puedes agendar tu cita utilizando nuestra plataforma en línea. Registrandote con tus datos
+                            selecciona el tipo deconsulta,
+                            elige un especialista y el horario que más te convenga.
+                        </p>
+                    </details>
+                </li>
+
+                <li class="bg-gray-200 shadow-lg rounded-lg p-5 md:p-10">
+                    <details class="border-l-4 border-red-500 pl-4">
+                        <summary class="font-bold text-lg cursor-pointer">
+                            ¿Qué debo hacer si necesito cancelar o reprogramar mi cita?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Puedes cancelar o reprogramar tu cita hasta 24 horas antes de la hora programada,
+                            directamente desde tu cuenta en nuestro portal web.
+                        </p>
+                    </details>
+                </li>
+                <li class="bg-gray-200 shadow-lg rounded-lg p-5 md:p-10">
+                    <details class="border-l-4 border-red-500 pl-4">
+                        <summary class="font-bold text-lg cursor-pointer">
+                            ¿Puedo elegir mi médico?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Sí, nuestra plataforma te permite elegir entre una variedad de especialistas según sus
+                            perfiles profesionales y horarios disponibles.
+                        </p>
+                    </details>
+                </li>
+                <li class="bg-gray-200 shadow-lg rounded-lg p-5 md:p-10">
+                    <details class="border-l-4 border-red-500 pl-4">
+                        <summary class="font-bold text-lg cursor-pointer">
+                            ¿Cuáles son los requisitos para agendar una cita?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Solo necesitas estar registrado en nuestra plataforma y tener una conexión a internet. No es
+                            necesario instalar ningún software adicional.
+                        </p>
+                    </details>
+                </li>
+                <li class="bg-gray-200 shadow-lg rounded-lg p-5 md:p-10">
+                    <details class="border-l-4 border-red-500 pl-4">
+                        <summary class="font-bold text-lg cursor-pointer">
+                            ¿Cómo puedo prepararme para mi cita?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Te recomendamos revisar las indicaciones específicas para cada tipo de consulta que se te
+                            proporcionarán al momento de la confirmación de tu cita.
+                        </p>
+                    </details>
+                </li>
+            </ul>
+        </div>
+        <!-- Beneficios de agendar citas online -->
+        <div class="mt-12 bg-gray-700 text-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-white">Beneficios de agendar citas online</h2>
+            <ul class="list-disc space-y-2 pl-5">
+                <li>Ahorra tiempo y evita esperas</li>
+                <li>Acceso a una amplia red de especialistas</li>
+                <li>Gestiona tus citas desde cualquier lugar</li>
+                <li>Evitar contagios por aglomeracion</li>
+            </ul>
+        </div>
+    </section>
+
+    </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-4 flex-grow xl:mt-40">
+            </main>
+
+    <!-- Pie de página -->
+    <footer class="py-8" style="background-color: rgb(0, 56, 102);">
+    <div class="container mx-auto text-white">
+        <div class="container mx-auto text-white text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                <div class="md:mt-0 md:text-left"> <!-- Cambiado a md:text-left -->
+                    <h4 class="font-semibold mb-2">Redes Sociales</h4>
+<ul class="flex flex-wrap gap-2 md:gap-4"> <!-- Quité la clase justify-start -->
+    <li><a href="#"><i class="fab fa-facebook text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram text-white"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin text-white"></i></a></li>
+</ul>
+</div>
+<div class="text-left md:text-right"> 
+<div class="mt-4 md:mt-0"> 
+    <p class="text-sm">© 2024 Hospital Distrital Laredo · Todos los derechos reservados</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+
+</html>

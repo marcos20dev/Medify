@@ -5,7 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
-.env
+../citapp/.env
 .env.backup
 .env.production
 .phpunit.result.cache

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/logo-icon.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100">
+
+<header x-data="{ open: false }" class="bg-white border-b-2 border-gray-200 fixed top-0 w-full z-10">
+
+    <div class="container mx-auto px-4 py-5 flex justify-between items-center">
+        <!-- Logo y texto más centrados dentro del contenedor COLOAR EN CASO SEA NECESAROI
+      flex-shrink-0  -->
+        <div class="flex justify-start md:justify-center flex-grow items-center">
+            <a href="http://127.0.0.1:8000" class="flex items-center">
+                <img src="http://127.0.0.1:8000/logo/LOGO LAREDO.png" alt="Logo del Hospital Distrital LAREDO" class="h-12 md:h-16">
+                <div class="hidden md:flex flex-col ml-3">
+                    <h1 class="text-lg md:text-xl font-semibold text-gray-800">Hospital Distrital LAREDO</h1>
+                    <p class="text-xs text-gray-600">Cuidando tu salud</p>
+                </div>
+            </a>
+        </div>
+        <div class="md:hidden flex items-center">
+            <button @click="open = !open"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800 transition">
+                <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-80 scale-95" x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-0 scale-100"
+         x-transition:leave-end="opacity-0 scale-95" class="md:hidden ">
+
+        <div class="px-5 py-4 shadow-xl rounded-lg transform transition-all duration-300 scale-100 opacity-100">
+
+            <a href="http://127.0.0.1:8000/cita/login" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-700 hover:text-gray-900">
+
+            <span class="mr-3"><i class="fas fa-sign-in-alt text-gray-800"></i></span>
+            <!-- Icono para inicio de sesión -->
+            Iniciar con nueva cuenta
+            <span
+                class="hidden absolute bottom-0 left-0 right-0 h-1 bg-custom-color"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000/registro" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-800 font-semibold">
+
+            <span class="mr-3"><i class="fas fa-user-plus text-gray-800"></i></span> <!-- Icono para registro -->
+            Crear nueva cuenta nueva
+            <span
+                class="block h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-700 hover:text-gray-900">
+
+            <span class="mr-3"><i class="fas fa-home text-gray-800"></i></span>
+            <!-- Icono para página de inicio -->
+            Página de inicio
+            <span
+                class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+
+            <hr class="my-1">
+            <form action="http://127.0.0.1:8000/logout" method="POST" style="all:unset;">
+                <input type="hidden" name="_token" value="Zj9RrXtttHxdp0dQ8xuW1Lv5bPHi8bV0pFnFYil1" autocomplete="off">                <button type="submit"
+                        class="flex items-center px-4 py-3 rounded-lg text-lg font-medium text-red-500 hover:text-red-700 focus:outline-none">
+                    <span class="mr-3"><i class="fas fa-sign-out-alt text-red-500"></i></span>
+                    Cerrar sesión
+                </button>
+            </form>
+
+
+
+
+            <br>
+
+        </div>
+</header>
+
+
+
+<style>
+    .bg-custom-color {
+        background-color: rgb(3, 194, 194);
+    }
+</style>
+
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x" defer></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <form id="registroForm" action="http://127.0.0.1:8000/registro" method="POST" class="flex items-center justify-center mt-24">
+
+        <input type="hidden" name="_token" value="Zj9RrXtttHxdp0dQ8xuW1Lv5bPHi8bV0pFnFYil1" autocomplete="off">
+        <div class="grid grid-cols-1 md:grid-cols-2 w-11/12">
+            <div class="p-8 hidden md:block">
+                <img src="http://127.0.0.1:8000/recursos/registro3.jpg" alt="Imagen de Registro" class="w-full h-auto mt-40 md:mt-8">
+            </div>
+
+            <div class="bg-white p-8 rounded shadow-md md:mt-8 md:col-span-1">
+                <h2 class="text-2xl font-semibold mb-4">Registro</h2>
+                <!-- Select Tipo de Documento -->
+                <div class="mb-4 md:flex md:flex-col">
+                    <select name="TipoDoc" id="TipoDoc" class="mt-1 p-2 w-full border rounded-md"
+                            onchange="toggleNumdocField()" required>
+                        <option value="" disabled selected>Seleccione Tipo de Documento</option>
+                        <option value="DNI">DNI</option>
+                        <option value="CARNET_EXTRANJERIA">Carnet de Extranjería</option>
+                        <option value="PASAPORTE">Pasaporte</option>
+                        <option value="DOCUMENTO_EXTRANJERO">Documento de Identidad Extranjero</option>
+                        <option value="PEP">PEP</option>
+                    </select>
+                </div>
+
+                <!-- Input Número de Documento -->
+
+                <form id="dniForm" action="http://127.0.0.1:8000/api/consulta-dni" method="POST"
+                      class="flex flex-col items-center justify-center p-6">
+                    <input type="hidden" name="_token" value="Zj9RrXtttHxdp0dQ8xuW1Lv5bPHi8bV0pFnFYil1" autocomplete="off">
+                    <div class="mb-4 md:flex md:items-center">
+                        <input type="text" name="Numdoc" id="Numdoc" placeholder="Número de Documento"
+                               class="mt-1 p-2 w-full border rounded-md" required>
+                        <button type="button" onclick="buscarDNI()"
+                                class="ml-2 bg-custom-color hover:bg-custom-color text-white font-bold py-2 px-4 rounded">Buscar</button>
+                    </div>
+
+
+                    <!-- Input Nombre -->
+                    <div class="mb-4 md:flex md:flex-col">
+                        <input type="text" name="Nombre" id="Nombre" placeholder="Nombre"
+                               class="mt-1 p-2 w-full border rounded-md" required readonly>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-0">
+                        <!-- Input Apellido Paterno -->
+                        <div class="mb-4 md:flex md:flex-col">
+                            <input type="text" name="ApePaterno" id="ApePaterno" placeholder="Apellido Paterno"
+                                   class="mt-1 p-2 w-full border rounded-md" required readonly>
+                        </div>
+
+                        <!-- Input Apellido Materno -->
+                        <div class="mb-4 md:flex md:flex-col">
+                            <input type="text" name="ApeMaterno" id="ApeMaterno" placeholder="Apellido Materno"
+                                   class="mt-1 p-2 w-full border rounded-md" required readonly>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- Input Teléfono -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <!-- Input Teléfono -->
+                    <div class="w-15/30 pr-2 relative">
+                        <input type="text" name="Telefono" id="Telefono" placeholder="Teléfono"
+                               class="mt-1 p-2 w-full border rounded-md" oninput="validatePhone()" required>
+                    </div>
+
+                    <!-- Input Fecha de Nacimiento -->
+                    <div class="form-group form-focus focused w-full relative">
+                        <input type="text" name="Fechanac" id="dtm_fecha" required placeholder="Fecha de Nacimiento"
+                               class="mt-1 p-2 w-full border rounded-md">
+
+                    </div>
+
+                </div>
+
+                <!-- Select Género -->
+                <div class="mb-2">
+                    <select name="Genero" id="Genero" class="mt-1 p-2 w-full border rounded-md" required>
+                        <option value="" disabled selected>Género</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="PrefieroNoDecirlo">Prefiero no decirlo</option>
+                    </select>
+                </div>
+
+                <!-- Select Región y Provincia -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <!-- Select Región -->
+                    <div>
+                        <select name="Region" id="Region" class="mt-1 p-2 w-full border rounded-md">
+                            <option value="" disabled selected>Región</option>
+
+                                                            <option value="1">AMAZONAS</option>
+                                                            <option value="2">ANCASH</option>
+                                                            <option value="3">APURIMAC</option>
+                                                            <option value="4">AREQUIPA</option>
+                                                            <option value="5">AYACUCHO</option>
+                                                            <option value="6">CAJAMARCA</option>
+                                                            <option value="7">CALLAO</option>
+                                                            <option value="8">CUSCO</option>
+                                                            <option value="9">HUANCAVELICA</option>
+                                                            <option value="10">HUANUCO</option>
+                                                            <option value="11">ICA</option>
+                                                            <option value="12">JUNIN</option>
+                                                            <option value="13">LA LIBERTAD</option>
+                                                            <option value="14">LAMBAYEQUE</option>
+                                                            <option value="15">LIMA</option>
+                                                            <option value="16">LORETO</option>
+                                                            <option value="17">MADRE DE DIOS</option>
+                                                            <option value="18">MOQUEGUA</option>
+                                                            <option value="19">PASCO</option>
+                                                            <option value="20">PIURA</option>
+                                                            <option value="21">PUNO</option>
+                                                            <option value="22">SAN MARTIN</option>
+                                                            <option value="23">TACNA</option>
+                                                            <option value="24">TUMBES</option>
+                                                            <option value="25">UCAYALI</option>
+                                                    </select>
+                    </div>
+                    <!-- Select Provincia -->
+                    <div>
+                        <select name="Provincia" id="Provincia" class="mt-1 p-2 w-full border rounded-md">
+                            <option value="" disabled selected>Provincia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Distrito -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+
+                    <!-- Select Distrito -->
+                    <div>
+                        <select name="Distrito" id="Distrito" class="mt-1 p-2 w-full border rounded-md">
+                            <option value="" disabled selected>Distrito</option>
+                        </select>
+                    </div>
+                    <!-- Input Dirección -->
+                    <div>
+                        <input type="text" name="Direccion" id="Direccion" placeholder="Dirección"
+                               class="mt-1 p-2 w-full border rounded-md" required>
+                    </div>
+                </div>
+
+                <!-- Input Correo Electrónico -->
+                <div class="mb-4">
+                    <input type="email" name="Gmail" id="Gmail" placeholder="Correo Electrónico (opcional)"
+                           class="mt-1 p-2 w-full border rounded-md">
+                </div>
+
+                <!-- Input Contraseña -->
+                <div class="mb-4 relative">
+                    <input id="password" type="password" name="password" placeholder="Contraseña"
+                           class="mt-1 p-2 w-full border rounded-md">
+                    <button id="toggle-password-button" type="button"
+                            class="absolute inset-y-0 right-0 px-3 text-gray-400 focus:outline-none"
+                            onclick="togglePassword()">
+                        <img id="password-icon" src="http://127.0.0.1:8000/img/ps.png" alt="Mostrar/Ocultar contraseña"
+                             class="h-6 w-6">
+                    </button>
+                </div>
+
+
+                <!-- Botón Registrar -->
+                <button type="submit" id="submitButton"
+                        class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">
+                    Registrar
+                </button>
+                <!-- Enlace para Iniciar Sesión -->
+                <p class="mt-4 text-sm">¿Ya tienes una cuenta? <a href="http://127.0.0.1:8000/cita/login"
+                                                                  class="text-blue-500 hover:text-blue-600">Inicia sesión</a></p>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+    <!-- Incluir los enlaces de flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/l10n/es.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+        function buscarDNI() {
+            var dni = document.getElementById('Numdoc').value;
+            if (dni) {
+                fetch('http://127.0.0.1:8000/api/consulta-dni', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                    },
+                    body: JSON.stringify({
+                        dni: dni
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.nombres) { // Asegúrate de que estás usando los nombres de campos correctos
+                            document.getElementById('Nombre').value = data.nombres; // Cambiado de nombre a nombres
+                            document.getElementById('ApePaterno').value = data.apellidoPaterno;
+                            document.getElementById('ApeMaterno').value = data.apellidoMaterno;
+                        } else {
+                            alert('No se encontraron datos para el DNI ingresado.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Hubo un error al buscar el DNI: ' + error.message);
+                    });
+            } else {
+                alert('Por favor, ingrese un DNI');
+            }
+        }
+    </script>
+
+
+
+
+
+    <script>
+        // Escuchar el evento de submit del formulario
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            // Mostrar SweetAlert de registro exitoso
+            Swal.fire({
+                icon: 'success',
+                title: '¡Registro exitoso!',
+                text: 'Te has registrado correctamente.',
+                confirmButtonText: 'Aceptar'
+            });
+        });
+    </script>
+    <script>
+        function toggleNumdocField() {
+            var tipoDocSelect = document.getElementById("TipoDoc");
+            var numdocInput = document.getElementById("Numdoc");
+
+            // Si se selecciona un tipo de documento, habilita la edición del campo de entrada del número de documento
+            if (tipoDocSelect.value !== "") {
+                numdocInput.removeAttribute("readonly");
+                numdocInput.classList.remove("readonly"); // Remueve la clase que aplica el estilo para modo de solo lectura
+            } else {
+                // De lo contrario, deshabilita la edición del campo de entrada del número de documento
+                numdocInput.setAttribute("readonly", "readonly");
+                numdocInput.classList.add("readonly"); // Agrega la clase que aplica el estilo para modo de solo lectura
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#dtm_fecha", {
+                locale: "es",  // Establece el idioma en español
+                dateFormat: "d-m-Y",  // Formato de fecha (día-mes-año)
+                enableTime: false, // Deshabilita la opción de hora
+            });
+        });
+    </script>
+
+
+
+    <script>
+        function validatePhone() {
+            var telefonoInput = document.getElementById("Telefono");
+            var telefonoValue = telefonoInput.value.trim();
+
+            // Eliminar caracteres no numéricos del valor del teléfono
+            var cleanedPhoneNumber = telefonoValue.replace(/\D/g, '');
+
+            // Verificar si el número de teléfono comienza con "9" y tiene 9 dígitos en total
+            if (/^9\d{8}$/.test(cleanedPhoneNumber)) {
+                // Si cumple con las condiciones, el número de teléfono es válido
+                telefonoInput.setCustomValidity('');
+            } else {
+                // Si no cumple con las condiciones, mostrar un mensaje de error
+                telefonoInput.setCustomValidity('El número de teléfono debe comenzar con 9 y tener 9 dígitos en total.');
+            }
+        }
+    </script>
+
+    <script>
+        function validateNumdoc() {
+            const numdocInput = document.getElementById('Numdoc');
+            const tooltip = document.getElementById('numdocTooltip');
+
+            if (!/^\d^$/.test(numdocInput.value)) {
+                tooltip.classList.remove('hidden');
+                numdocInput.setCustomValidity('Por favor, ingresa solo números en este campo.');
+            } else {
+                tooltip.classList.add('hidden');
+                numdocInput.setCustomValidity('');
+            }
+        }
+    </script>
+
+    <script>
+        function togglePassword() {
+            const password = document.getElementById("password");
+            const button = document.getElementById("toggle-password-button");
+            const icon = document.getElementById("password-icon");
+
+            if (password.type === "password") {
+                password.type = "text";
+                icon.src = "http://127.0.0.1:8000/img/ps-tachado.png"; // Cambia la imagen a una contraseña tachada
+            } else {
+                password.type = "password";
+                icon.src = "http://127.0.0.1:8000/img/ps.png"; // Cambia la imagen de nuevo a la contraseña normal
+            }
+        }
+    </script>
+    <!-- Script para validar el número de teléfono -->
+    <script>
+        function validatePhone() {
+            var telefonoInput = document.getElementById("Telefono");
+            var telefonoValue = telefonoInput.value.trim();
+
+            // Eliminar caracteres no numéricos del valor del teléfono
+            var cleanedPhoneNumber = telefonoValue.replace(/\D/g, '');
+
+            // Verificar si el número de teléfono comienza con "9" y tiene 9 dígitos en total
+            if (/^9\d{8}$/.test(cleanedPhoneNumber)) {
+                // Si cumple con las condiciones, el número de teléfono es válido
+                telefonoInput.setCustomValidity('');
+            } else {
+                // Si no cumple con las condiciones, mostrar un mensaje de error
+                telefonoInput.setCustomValidity('El número de teléfono debe comenzar con 9 y tener 9 dígitos en total.');
+            }
+        }
+    </script>
+
+
+    <script>
+        document.getElementById('Region').addEventListener('change', function() {
+            var regionId = this.value;
+            cargarProvincias(regionId);
+            var selectDistrito = document.getElementById('Distrito');
+            selectDistrito.innerHTML = '<option value="" disabled selected>Distrito</option>';
+
+        });
+
+        function cargarProvincias(regionId) {
+            var selectProvincia = document.getElementById('Provincia');
+            selectProvincia.innerHTML =
+                '<option value="" disabled selected>Provincia</option>'; // Limpiar el select de provincias antes de cargar nuevas opciones
+
+            // Realizar solicitud AJAX para obtener las provincias correspondientes a la región seleccionada
+            fetch("http://127.0.0.1:8000/obtener-provincias?region_id=" + regionId)
+                .then(response => response.json())
+                .then(data => {
+                    // Iterar sobre las provincias recibidas y agregarlas al select de provincias
+                    for (const [id, provincia] of Object.entries(data)) {
+                        var option = document.createElement("option");
+                        option.value = id;
+                        option.text = provincia;
+                        selectProvincia.appendChild(option);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    <script>
+        document.getElementById('Provincia').addEventListener('change', function() {
+            var provinciaId = this.value;
+            cargarDistritos(provinciaId);
+        });
+
+        function cargarDistritos(provinciaId) {
+            var selectDistrito = document.getElementById('Distrito');
+            selectDistrito.innerHTML =
+                '<option value="" disabled selected>Distrito</option>'; // Limpiar el select de distritos antes de cargar nuevas opciones
+
+            // Realizar solicitud AJAX para obtener los distritos correspondientes a la provincia seleccionada
+            fetch("http://127.0.0.1:8000/obtener-distritos?provincia_id=" + provinciaId)
+                .then(response => response.json())
+                .then(data => {
+                    // Iterar sobre los distritos recibidos y agregarlos al select de distritos
+                    for (const [id, distrito] of Object.entries(data)) {
+                        var option = document.createElement("option");
+                        option.value = id;
+                        option.text = distrito;
+                        selectDistrito.appendChild(option);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+
+</body>
+
+</html>

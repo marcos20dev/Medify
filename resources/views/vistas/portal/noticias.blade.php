@@ -6,7 +6,7 @@
 
     <div class="max-w-6xl mx-auto mb-4"> <!-- Aumentar un poco más el ancho del contenedor -->
 
-        
+
         <form id="filtrarForm" action="{{ route('filtrarNoticias') }}" method="GET" class="mb-4 flex items-center">
             <label for="fecha" class="mr-2">Filtrar por fecha:</label>
             <input type="date" id="fecha" name="fecha" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mr-2">
@@ -23,7 +23,7 @@
                 <div class="flex items-start mb-4 px-2">
                     <div class="flex-1">
                         <h2 class="font-bold text-lg"><a href="{{ route('mostrarNoticia', $noticia->id) }}">{{ $noticia->titulo }}</a></h2>
-                        <p class="text-gray-700">{{ Str::limit($noticia->descripcion, 120) }}</p>
+                        <p class="text-gray-700">{{ Str::limit($noticia->descripcion, 340) }}</p>
                     </div>
                     <div class="flex-shrink-0 ml-4">
                         <!-- Utiliza la imagen en formato base64 -->
@@ -47,7 +47,10 @@
         @endif
     </div>
 
-    {{ $noticias->links() }}
+    <!-- Centrado de paginación -->
+    <div class="flex justify-center mt-4">
+        {{ $noticias->links() }}
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
@@ -68,10 +71,5 @@
             });
         });
     </script>
-
+    <br>
 @endsection
-
-
-
-
-
