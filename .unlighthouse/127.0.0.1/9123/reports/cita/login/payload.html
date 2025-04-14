@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/logo-icon.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+<header x-data="{ open: false }" class="bg-white border-b-2 border-gray-200 fixed top-0 w-full z-10">
+    <div class="container mx-auto px-4 py-5 flex justify-between items-center">
+        <!-- Logo y texto más centrados dentro del contenedor COLOAR EN CASO SEA NECESAROI
+        flex-shrink-0  -->
+        <div class="flex justify-start md:justify-center flex-grow items-center">
+            <a href="http://127.0.0.1:8000" class="flex items-center">
+                <img src="http://127.0.0.1:8000/logo/LOGO LAREDO.png" alt="Logo del Hospital Distrital LAREDO"
+                     class="h-12 md:h-16">
+                <div class="hidden md:flex flex-col ml-3">
+                    <h1 class="text-lg md:text-xl font-semibold text-gray-800">Hospital Distrital LAREDO</h1>
+                    <p class="text-xs text-gray-600">Cuidando tu salud</p>
+                </div>
+            </a>
+        </div>
+        <div class="md:hidden flex items-center">
+            <button @click="open = !open"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800 transition">
+                <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+                <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-80 scale-95" x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-0 scale-100"
+         x-transition:leave-end="opacity-0 scale-95" class="md:hidden ">
+
+        <div class="px-5 py-4 shadow-xl rounded-lg transform transition-all duration-300 scale-100 opacity-100">
+
+            <a href="http://127.0.0.1:8000/cita/login"
+               class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-800 font-semibold">
+
+            <span class="mr-3"><i class="fas fa-sign-in-alt text-gray-800"></i></span>
+            <!-- Icono para inicio de sesión -->
+            Inicio de sesión
+            <span
+                class="block absolute bottom-0 left-0 right-0 h-1 bg-custom-color"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000/registro" class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-700 hover:text-gray-900">
+
+            <span class="mr-3"><i class="fas fa-user-plus text-gray-800"></i></span> <!-- Icono para registro -->
+            Crear nueva cuenta
+            <span
+                class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+            <hr class="my-1">
+
+            <a href="http://127.0.0.1:8000"
+               class="flex items-center px-4 py-3 rounded-lg text-lg font-medium"
+            text-gray-700 hover:text-gray-900">
+
+            <span class="mr-3"><i class="fas fa-home text-gray-800"></i></span> <!-- Icono para página de inicio -->
+            Página de inicio
+            <span
+                class="hidden h-1 bg-custom-color absolute bottom-0 left-0 right-0"></span>
+            </a>
+
+
+            <br>
+
+        </div>
+
+</header>
+
+
+
+<style>
+    .bg-custom-color {
+        background-color: rgb(3, 194, 194);
+    }
+</style>
+
+
+<div class="ml-1/4 mt-8 content-main">
+        <div class="flex items-center justify-center sm:py-40 py-5 min-h-screen">
+        <div class="flex flex-wrap max-w-6xl w-full p-8 md:p-6 rounded-lg shadow-md bg-gray-200">
+            <!-- Imagen (oculta en dispositivos móviles) -->
+            <div class="w-full md:w-1/2 px-1 py-12 hidden md:block">
+                <img src="http://127.0.0.1:8000/img/hospital.png" alt="Imagen de inicio de sesión"
+                     class="w-full h-auto object-cover rounded-lg">
+            </div>
+
+            <!-- Formulario -->
+            <div class="w-full md:w-1/2 px-4 py-6">
+                <div class="flex flex-col items-center">
+                    <h1 class="mb-4 text-xl font-semibold text-gray-700">Iniciar sesión</h1>
+                    <p class="mb-6 text-gray-500">Ingrese su número de DNI y contraseña para acceder a su cuenta.</p>
+                </div>
+
+                <!-- Formulario de inicio de sesión -->
+                <form action="http://127.0.0.1:8000/verificar" method="POST" class="w-full">
+                    <input type="hidden" name="_token" value="50PVpMQuTcqIcjy9D4jcOgKu3vstikkXI2TP1GnE" autocomplete="off">                    <div class="mb-4">
+                        <label for="Numdoc" class="mb-2 text-sm font-medium text-gray-700">Número de documento</label>
+                        <input id="Numdoc" name="Numdoc" type="text"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-300"
+                               placeholder="Ingrese su número de DNI" required>
+                                            </div>
+                    <div class="mb-4">
+                        <label for="password" class="mb-2 text-sm font-medium text-gray-700">Contraseña</label>
+                        <div class="relative flex items-center">
+                            <input id="password" name="password" type="password"
+                                   class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                   placeholder="Ingrese su contraseña" required aria-describedby="password-help">
+                            <button id="toggle-password-button" type="button"
+                                    class="absolute inset-y-0 right-0 px-3 text-gray-400 focus:outline-none"
+                                    aria-label="Mostrar u ocultar contraseña" onclick="togglePassword()">
+                                <img id="password-icon" src="http://127.0.0.1:8000/img/ps.png"
+                                     alt="Mostrar/Ocultar contraseña" class="h-6 w-6">
+                            </button>
+                        </div>
+                        <small id="password-help" class="text-gray-500">La contraseña debe contener al menos 8 caracteres.</small>
+                                            </div>
+                    <div class="mb-4">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="recordarme" class="mr-2">
+                            <span class="text-sm text-gray-700">Recordarme</span>
+                        </label>
+                    </div>
+                    <button type="submit"
+                            class="w-full px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                        Iniciar sesión
+                    </button>
+                </form>
+
+                
+                <div class="flex items-center justify-center mt-4">
+                    <p class="text-sm text-gray-600">¿No tienes una cuenta?
+                        <a href="http://127.0.0.1:8000/registro" class="ml-1 text-blue-700 hover:underline">Crear cuenta</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const password = document.getElementById("password");
+            const icon = document.getElementById("password-icon");
+
+            if (password.type === "text") {
+                password.type = "password";
+                icon.src = "http://127.0.0.1:8000/img/ps.png";
+            } else {
+                password.type = "text";
+                icon.src = "http://127.0.0.1:8000/img/ps-tachado.png";
+            }
+        }
+    </script>
+</div>
+</body>
+
+</html>
