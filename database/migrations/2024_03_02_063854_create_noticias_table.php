@@ -16,8 +16,16 @@ class CreateNoticiasTable extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
             $table->string('titulo', 200);
-            $table->string('descripcion', 10000);
+            $table->longText('descripcion');
             $table->longText('foto')->nullable();
+
+            $table->unsignedBigInteger('comentarios')->default(0);
+            $table->unsignedBigInteger('vistas')->default(0);
+            $table->unsignedBigInteger('compartidos')->default(0);
+            $table->boolean('publicada')->default(false);
+            $table->string('categoria')->nullable();
+            $table->text('etiquetas')->nullable();
+
             $table->timestamps();
         });
     }
@@ -32,4 +40,3 @@ class CreateNoticiasTable extends Migration
         Schema::dropIfExists('noticias');
     }
 }
-

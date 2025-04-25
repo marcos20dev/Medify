@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
 {
-    //protected $Noticia = [
-       // 'titulo', 'descripcion', 'foto',
-   /// ];
 
    use HasFactory;
 }
