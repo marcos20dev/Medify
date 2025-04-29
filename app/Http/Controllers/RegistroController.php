@@ -10,6 +10,9 @@ use App\Models\Regione;
 use App\Models\Provincia;
 use App\Models\Distrito;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+
 
 class RegistroController extends Controller
 {
@@ -39,44 +42,62 @@ class RegistroController extends Controller
 
     public function guardar(Request $request)
     {
-        // Validación de los campos
-        $validated = $request->validate([
-            'TipoDoc' => 'required|string',
-            'Numdoc' => 'required|string|size:8',  // Validación para DNI de 8 caracteres
-            'Nombre' => 'required|string',
-            'ApePaterno' => 'required|string',
-            'ApeMaterno' => 'required|string',
-            'Telefono' => 'required|string',
-            'Fechanac' => 'required|date',
-            'Genero' => 'required|string',
-            'Region' => 'required|exists:regiones,idReg', // Validar que la región existe
-            'Provincia' => 'required|exists:provincias,idProv',
-            'Distrito' => 'required|exists:distritos,idDist',
-            'Direccion' => 'required|string',
-            'Gmail' => 'nullable|email',
-            'password' => 'required|string|min:8|confirmed',  // Validación de la contraseña (con confirmación)
-        ]);
+        Log::info('Entró al método guardar');
 
-        // Continuar con el almacenamiento si los datos son válidos
-        $paciente = new User();
-        $paciente->TipoDoc = $request->input('TipoDoc');
-        $paciente->Numdoc = $request->input('Numdoc');
-        $paciente->Nombre = $request->input('Nombre');
-        $paciente->ApePaterno = $request->input('ApePaterno');
-        $paciente->ApeMaterno = $request->input('ApeMaterno');
-        $paciente->Telefono = $request->input('Telefono');
-        $paciente->Fechanac = $request->input('Fechanac');
-        $paciente->Genero = $request->input('Genero');
-        $paciente->Region = $request->input('Region');
-        $paciente->Provincia = $request->input('Provincia');
-        $paciente->Distrito = $request->input('Distrito');
-        $paciente->Direccion = $request->input('Direccion');
-        $paciente->Gmail = $request->input('Gmail');
-        $paciente->password = Hash::make($request->input('password'));
+        try {
+            $validated = $request->validate([
+                'TipoDoc' => 'required|string',
+                'Numdoc' => 'required|string|size:8',
+                'Nombre' => 'required|string',
+                'ApePaterno' => 'required|string',
+                'ApeMaterno' => 'required|string',
+                'Telefono' => 'required|string',
+                'Fechanac' => 'required|date',
+                'Genero' => 'required|string',
+                'Region' => 'required|exists:regiones,idReg',
+                'Provincia' => 'required|exists:provincias,idProv',
+                'Distrito' => 'required|exists:distritos,idDist',
+                'Direccion' => 'required|string',
+                'Gmail' => 'nullable|email',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
 
-        $paciente->save();
+            Log::info('Validación exitosa', $validated);
 
-        return redirect()->route('login')->with('success', '¡Registro exitoso!');
+            $paciente = new User();
+            $paciente->TipoDoc = $request->input('TipoDoc');
+            $paciente->Numdoc = $request->input('Numdoc');
+            $paciente->Nombre = $request->input('Nombre');
+            $paciente->ApePaterno = $request->input('ApePaterno');
+            $paciente->ApeMaterno = $request->input('ApeMaterno');
+            $paciente->Telefono = $request->input('Telefono');
 
+            // 🔥 Aquí convertimos la fecha al formato correcto
+            $fechaOriginal = $request->input('Fechanac');
+            $fechaFormateada = Carbon::createFromFormat('d-m-Y', $fechaOriginal)->format('Y-m-d');
+            $paciente->Fechanac = $fechaFormateada;
+
+            $paciente->Genero = $request->input('Genero');
+            $paciente->Region = $request->input('Region');
+            $paciente->Provincia = $request->input('Provincia');
+            $paciente->Distrito = $request->input('Distrito');
+            $paciente->Direccion = $request->input('Direccion');
+            $paciente->Gmail = $request->input('Gmail');
+            $paciente->password = Hash::make($request->input('password'));
+
+            $paciente->save();
+
+            Log::info('Paciente guardado correctamente', ['id' => $paciente->id]);
+
+            return redirect()->route('login')->with('success', '¡Registro exitoso!');
+        } catch (\Throwable $e) {
+            Log::error('Error en guardar', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return back()->with('error', 'Error al registrar. Revisa los logs.');
+        }
     }
+
 }

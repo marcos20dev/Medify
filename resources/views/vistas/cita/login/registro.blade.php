@@ -4,6 +4,15 @@
 
 @section('cita')
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form id="registroForm" action="{{ route('registro') }}" method="POST" class="flex items-center justify-center mt-24">
 
@@ -137,14 +146,14 @@
                 <!-- Input Contraseña -->
                 <div class="mb-4 relative">
                     <input id="password" type="password" name="password" placeholder="Contraseña"
-                           class="mt-1 p-2 w-full border rounded-md">
-                    <button id="toggle-password-button" type="button"
-                            class="absolute inset-y-0 right-0 px-3 text-gray-400 focus:outline-none"
-                            onclick="togglePassword()">
-                        <img id="password-icon" src="{{ asset('img/ps.png') }}" alt="Mostrar/Ocultar contraseña"
-                             class="h-6 w-6">
-                    </button>
+                           class="mt-1 p-2 w-full border rounded-md" required>
                 </div>
+
+                <div class="mb-4 relative">
+                    <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirmar Contraseña"
+                           class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+
 
 
                 <!-- Botón Registrar -->

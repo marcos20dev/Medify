@@ -70,8 +70,8 @@
                                 <!-- Autor -->
                                 <div class="text-xs text-gray-500 flex flex-col sm:flex-row sm:items-center gap-2 pt-2 border-t border-gray-200 mt-3">
                                     <div class="flex items-center gap-2">
-                                        <img class="h-5 w-5 rounded-full" src="https://via.placeholder.com/24" alt="Autor">
-                                        <span>Redacción Hospital Distrital de Laredo</span>
+                                        <img src="{{ asset('img/hospital.png') }}" alt="Hospital Distrital de Laredo" class="h-5 w-5 rounded-full">
+                                        <span>Hospital Distrital de Laredo</span>
                                     </div>
                                     <span class="hidden sm:block">·</span>
                                     <span>{{ $noticia->created_at->diffForHumans() }}</span>
